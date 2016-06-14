@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
-import {StyleSheet, AppRegistry, Text, View} from 'react-native';
-import JournalEntry from './app/components/JournalEntry';
+import {AppRegistry} from 'react-native';
+import Journal from './app/Journal';
 
-class Journal extends Component {
+class IOSJournal extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <JournalEntry></JournalEntry>
-      </View>
-    );
+    return (<Journal></Journal>);
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
-
-AppRegistry.registerComponent('Journal', () => Journal);
+AppRegistry.registerComponent('Journal', () => IOSJournal);
