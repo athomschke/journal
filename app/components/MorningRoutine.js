@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import JournalTextInput from './JournalTextInput';
+import RoutineAnswer from './RoutineAnswer';
 
 export default class MorningRoutine extends Component {
     render() {
@@ -12,17 +12,18 @@ export default class MorningRoutine extends Component {
           <Text style={[styles.text, styles.section]}>
             I am grateful for…
           </Text>
-          <JournalTextInput description='1'></JournalTextInput>
-          <JournalTextInput description='2'></JournalTextInput>
-          <JournalTextInput description='3'></JournalTextInput>
+          <RoutineAnswer
+            count={3}
+            numbered={true}
+          ></RoutineAnswer>
           <Text style={[styles.text, styles.section]}>
             What would make today great?
           </Text>
-          <JournalTextInput></JournalTextInput>
+          <RoutineAnswer></RoutineAnswer>
           <Text style={[styles.text, styles.section]}>
             Daily affirmation:
           </Text>
-          <JournalTextInput></JournalTextInput>
+          <RoutineAnswer></RoutineAnswer>
         </View>
       )
     }

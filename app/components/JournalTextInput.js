@@ -49,7 +49,7 @@ export default class JournalTextInput extends Component {
 
 const styles = StyleSheet.create({
   description: {
-    width: 10,
+    width: 15,
     color: '#48321E',
     marginRight: 10
   },
