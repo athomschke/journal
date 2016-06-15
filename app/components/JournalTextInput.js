@@ -33,7 +33,7 @@ export default class JournalTextInput extends Component {
     if (this.props.description !== '') {
       return (<Text
         style={[styles.description, {
-          color: this.props.colors.dark
+          color: this.props.colors.text
         }]}
       >{this.props.description}</Text>);
     }
@@ -45,11 +45,11 @@ export default class JournalTextInput extends Component {
       <View style={styles.container}>
         {this.renderDescription()}
         <View style={[styles.inputContainer, {
-          borderBottomColor: this.props.colors.dark
+          borderBottomColor: this.props.colors.text
         }]}><TextInput
           style={[styles.input, {
-            borderBottomColor: this.props.colors.dark,
-            color: this.props.colors.dark,
+            borderBottomColor: this.props.colors.text,
+            color: this.props.colors.text,
           }]}
           onChangeText={that.onChangeText.bind(that)}
           value={that.state.text}

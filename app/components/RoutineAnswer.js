@@ -6,16 +6,12 @@ export default class RoutineAnswer extends Component {
 
   static propTypes = {
     count: PropTypes.number,
-    numbered: PropTypes.bool,
-    colors: PropTypes.object
+    numbered: PropTypes.bool
   };
 
   static defaultProps = {
     count: 1,
-    numbered: false,
-    colors: {
-      dark: '#FFFFFF'
-    }
+    numbered: false
   }
 
   renderAnswer(key) {

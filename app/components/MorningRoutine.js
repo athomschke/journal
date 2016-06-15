@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
 import Routine from './Routine';
-import {dayDark, dayLight, headlineFontSize, margin} from '../constants/style';
+import {dayDark, dayLight} from '../constants/style';
 
 export default class MorningRoutine extends Component {
     render() {
@@ -14,8 +13,8 @@ export default class MorningRoutine extends Component {
 const routine = {
   title: 'Morning Routine',
   colors: {
-    dark: dayDark,
-    light: dayLight
+    text: dayDark,
+    background: dayLight
   },
   content: [
     {

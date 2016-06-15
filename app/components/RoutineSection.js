@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import RoutineAnswer from './RoutineAnswer';
-import {dayDark, contentFontSize, margin} from '../constants/style';
+import {contentFontSize, margin} from '../constants/style';
 
 export default class RoutineSection extends Component {
 
@@ -12,7 +12,7 @@ export default class RoutineSection extends Component {
 
   static defaultProps = {
     colors: {
-      dark: '#000000'
+      text: '#000000'
     }
   }
 
@@ -20,7 +20,7 @@ export default class RoutineSection extends Component {
     return (
       <View>
         <Text style={[styles.text, {
-          color: this.props.colors.dark
+          color: this.props.colors.text
         }]}>
           {this.props.title}
         </Text>
