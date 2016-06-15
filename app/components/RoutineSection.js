@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import JournalTextInput from './JournalTextInput';
 import { StyleSheet, View, Text } from 'react-native';
 import RoutineAnswer from './RoutineAnswer';
+import {dayDark, contentFontSize, margin} from '../constants/style';
 
 export default class RoutineSection extends Component {
 
@@ -23,8 +24,8 @@ export default class RoutineSection extends Component {
 
 const styles = StyleSheet.create({
   text: {
-    margin: 10,
-    color: '#48321E',
-    fontSize: 20
+    margin: margin,
+    color: dayDark,
+    fontSize: contentFontSize
   }
 });
