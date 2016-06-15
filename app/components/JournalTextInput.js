@@ -1,16 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import {StyleSheet, TextInput, Text, View } from 'react-native';
+import { margin } from '../constants/style';
 
 export default class JournalTextInput extends Component {
 
   static propTypes = {
 		value: PropTypes.string,
-    description: PropTypes.string
+    description: PropTypes.string,
+    colors: PropTypes.object
 	};
 
 	static defaultProps = {
 		text: '',
-		description: ''
+		description: '',
+    colors: {
+      dark: '#FFFFFF'
+    }
 	}
 
   constructor(props) {
@@ -27,7 +32,9 @@ export default class JournalTextInput extends Component {
   renderDescription() {
     if (this.props.description !== '') {
       return (<Text
-        style={styles.description}
+        style={[styles.description, {
+          color: this.props.colors.dark
+        }]}
       >{this.props.description}</Text>);
     }
   }
@@ -37,8 +44,13 @@ export default class JournalTextInput extends Component {
     return (
       <View style={styles.container}>
         {this.renderDescription()}
-        <View style={styles.inputContainer}><TextInput
-          style={styles.input}
+        <View style={[styles.inputContainer, {
+          borderBottomColor: this.props.colors.dark
+        }]}><TextInput
+          style={[styles.input, {
+            borderBottomColor: this.props.colors.dark,
+            color: this.props.colors.dark,
+          }]}
           onChangeText={that.onChangeText.bind(that)}
           value={that.state.text}
         /></View>
@@ -46,27 +58,22 @@ export default class JournalTextInput extends Component {
     )
   }
 }
-
 const styles = StyleSheet.create({
   description: {
     width: 15,
-    color: '#48321E',
-    marginRight: 10
+    marginRight: margin
   },
   input: {
     flex: 1,
     borderBottomWidth: 1,
-    borderBottomColor: '#48321E',
-    color: '#48321E'
   },
   inputContainer: {
     flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: '#48321E'
+    borderBottomWidth: 1
   },
   container: {
     flexDirection: 'row',
-    margin: 10,
+    margin: margin,
     marginTop: 20
   }
 });

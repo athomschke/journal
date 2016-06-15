@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import JournalTextInput from './JournalTextInput';
 import { StyleSheet, View, Text } from 'react-native';
 import RoutineAnswer from './RoutineAnswer';
 import {dayDark, contentFontSize, margin} from '../constants/style';
@@ -7,13 +6,22 @@ import {dayDark, contentFontSize, margin} from '../constants/style';
 export default class RoutineSection extends Component {
 
   static propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    colors: PropTypes.object
   };
+
+  static defaultProps = {
+    colors: {
+      dark: '#000000'
+    }
+  }
 
   render() {
     return (
       <View>
-        <Text style={styles.text}>
+        <Text style={[styles.text, {
+          color: this.props.colors.dark
+        }]}>
           {this.props.title}
         </Text>
         <RoutineAnswer {...this.props}></RoutineAnswer>
@@ -25,7 +33,6 @@ export default class RoutineSection extends Component {
 const styles = StyleSheet.create({
   text: {
     margin: margin,
-    color: dayDark,
     fontSize: contentFontSize
   }
 });

@@ -6,12 +6,16 @@ export default class RoutineAnswer extends Component {
 
   static propTypes = {
     count: PropTypes.number,
-    numbered: PropTypes.bool
+    numbered: PropTypes.bool,
+    colors: PropTypes.object
   };
 
   static defaultProps = {
     count: 1,
-    numbered: false
+    numbered: false,
+    colors: {
+      dark: '#FFFFFF'
+    }
   }
 
   renderAnswer(key) {
@@ -19,11 +23,12 @@ export default class RoutineAnswer extends Component {
     return <JournalTextInput
       key={key}
       description={description}
+      colors={this.props.colors}
     ></JournalTextInput>
   }
 
   render() {
-    let answers = []
+    let answers = [];
     for(let i = 1; i<=this.props.count; i++) {
       answers.push(this.renderAnswer(i));
     }
