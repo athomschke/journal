@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import {StyleSheet, TextInput, Text } from 'react-native';
+import {StyleSheet, TextInput, Text, View } from 'react-native';
 
 export default class JournalTextInput extends Component {
 
   static propTypes = {
-		text: PropTypes.string
+		value: PropTypes.string,
+    description: PropTypes.string
 	};
 
 	static defaultProps = {
-		text: ''
+		text: '',
+		description: ''
 	}
 
   constructor(props) {
@@ -22,22 +24,49 @@ export default class JournalTextInput extends Component {
     this.setState({text: text})
   }
 
+  renderDescription() {
+    if (this.props.description !== '') {
+      return (<Text
+        style={styles.description}
+      >{this.props.description}</Text>);
+    }
+  }
+
   render() {
     let that = this;
     return (
-      <TextInput
-        style={styles.input}
-        onChangeText={that.onChangeText.bind(that)}
-        value={that.state.text}
-      />
+      <View style={styles.container}>
+        {this.renderDescription()}
+        <View style={styles.inputContainer}><TextInput
+          style={styles.input}
+          onChangeText={that.onChangeText.bind(that)}
+          value={that.state.text}
+        /></View>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  description: {
+    width: 10,
+    color: '#48321E',
+    marginRight: 10
+  },
   input: {
-    borderColor: 'gray',
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: '#48321E',
+    color: '#48321E'
+  },
+  inputContainer: {
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: '#48321E'
+  },
+  container: {
+    flexDirection: 'row',
     margin: 10,
-    borderWidth: 1
+    marginTop: 20
   }
 });

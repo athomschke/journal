@@ -6,20 +6,20 @@ export default class MorningRoutine extends Component {
     render() {
       return (
         <View style={styles.container}>
-          <Text style={styles.headline}>
+          <Text style={[styles.text, styles.headline]}>
             Morning Routine
           </Text>
-          <Text style={styles.section}>
+          <Text style={[styles.text, styles.section]}>
             I am grateful for…
           </Text>
-          <Text style={styles.numbering}>1.</Text><JournalTextInput></JournalTextInput>
-          <Text style={styles.numbering}>2.</Text><JournalTextInput></JournalTextInput>
-          <Text style={styles.numbering}>3.</Text><JournalTextInput></JournalTextInput>
-          <Text style={styles.section}>
+          <JournalTextInput description='1'></JournalTextInput>
+          <JournalTextInput description='2'></JournalTextInput>
+          <JournalTextInput description='3'></JournalTextInput>
+          <Text style={[styles.text, styles.section]}>
             What would make today great?
           </Text>
           <JournalTextInput></JournalTextInput>
-          <Text style={styles.section}>
+          <Text style={[styles.text, styles.section]}>
             Daily affirmation:
           </Text>
           <JournalTextInput></JournalTextInput>
@@ -30,24 +30,16 @@ export default class MorningRoutine extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#F4F1DD'
   },
-  section: {
-    flex: 1,
-    fontSize: 20,
-    textAlign: 'left',
+  text: {
     margin: 10,
     color: '#48321E'
+  },
+  section: {
+    fontSize: 20
   },
   headline: {
-    flex: 1,
-    fontSize: 40,
-    textAlign: 'left',
-    margin: 10,
-    color: '#48321E'
-  },
-  numbering: {
-      margin: 10
+    fontSize: 40
   }
 });
