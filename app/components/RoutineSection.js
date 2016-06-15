@@ -32,7 +32,8 @@ export default class RoutineSection extends Component {
 
 const styles = StyleSheet.create({
   text: {
-    margin: margin,
-    fontSize: contentFontSize
+    fontSize: contentFontSize,
+    marginTop: margin,
+    marginBottom: margin,
   }
 });

@@ -18,6 +18,6 @@ export default class JournalEntry extends Component {
 const styles = StyleSheet.create({
   scrollView: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').height
   }
 });

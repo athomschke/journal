@@ -43,7 +43,8 @@ export default class Routine extends Component {
 
   render() {
     let containerStyle = {
-      backgroundColor: this.props.colors.background
+      backgroundColor: this.props.colors.background,
+      padding: margin
     }
     return (
       <View style={containerStyle}>
@@ -56,7 +57,8 @@ export default class Routine extends Component {
 
 const styles = StyleSheet.create({
   headline: {
-    margin: margin,
+    textAlign: 'center',
+    padding: margin,
     fontSize: headlineFontSize
   }
 });
