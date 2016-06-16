@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
-import Routine from './Routine';
-import {dayDark, dayLight, nightDark, nightLight} from '../constants/style';
+import Affirmation from './Questions/Affirmation';
+import AmazingThings from './Questions/AmazingThings';
+import Grateful from './Questions/Grateful';
+import Improve from './Questions/Improve';
+import MakesGreat from './Questions/MakesGreat';
+import { morning, night } from '../constants/titles';
+import {contentFontSize, margin, nightLight, dayLight, dayDark, nightDark, headlineFontSize} from '../constants/style';
 
 export default class JournalEntry extends Component {
 
   render() {
     let renderedRoutines = [];
-    routines.forEach((routine, i) => {
-      renderedRoutines.push(<Routine {...routine}
-        key={i}
-      ></Routine>)
-    })
     return (
       <ScrollView style={styles.scrollView}>
-        {renderedRoutines}
+        <View style={[styles.container, styles.containerDay]}>
+          <Text style={[styles.headline, styles.headlineDay]}>
+            {morning}
+          </Text>
+          <View>
+            <Grateful></Grateful>
+            <MakesGreat></MakesGreat>
+            <Affirmation></Affirmation>
+          </View>
+        </View>
+        <View style={[styles.container, styles.containerNight]}>
+          <Text style={[styles.headline, styles.headlineNight]}>
+            {night}
+          </Text>
+          <View>
+            <AmazingThings></AmazingThings>
+            <Improve></Improve>
+          </View>
+        </View>
       </ScrollView>
     )
   }
@@ -24,58 +42,25 @@ const styles = StyleSheet.create({
   scrollView: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
+  },
+  headline: {
+    textAlign: 'center',
+    padding: margin,
+    fontSize: headlineFontSize
+  },
+  headlineDay: {
+    color: dayDark
+  },
+  headlineNight: {
+    color: nightLight
+  },
+  container: {
+    padding: margin
+  },
+  containerDay: {
+    backgroundColor: dayLight
+  },
+  containerNight: {
+    backgroundColor: nightDark
   }
 });
-
-let routines = [{
-  title: 'Morning Routine',
-  styles: {
-    container: {
-      backgroundColor: dayLight
-    },
-    text: {
-      color: dayDark
-    },
-    input: {
-      borderBottomColor: dayDark
-    }
-  },
-  content: [
-    {
-      title: 'I am grateful for…',
-      count: 3,
-      numbered: true,
-      value: ['a', 'b', 'c']
-    }, {
-      title: 'What would make today great?',
-      value: ['d', 'e', 'f']
-    }, {
-      title: 'Daily affirmation:',
-      value: 'g'
-    }
-  ]
-}, {
-  title: 'Night Routine',
-  styles: {
-    container: {
-      backgroundColor: nightDark
-    },
-    text: {
-      color: nightLight
-    },
-    input: {
-      borderBottomColor: nightLight
-    }
-  },
-  content: [
-    {
-      title: 'Three amazing things that happened today:',
-      count: 3,
-      numbered: true,
-      value: ['h', 'i', 'j']
-    }, {
-      title: 'How could I have made today better?',
-      value: 'k'
-    }
-  ]
-}]

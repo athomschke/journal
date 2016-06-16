@@ -49,6 +49,6 @@ export default class JournalTextInput extends Component {
 const styles = StyleSheet.create({
   input: {
     flex: 1,
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   }
 });
