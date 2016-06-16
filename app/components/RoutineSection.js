@@ -11,17 +11,17 @@ export default class RoutineSection extends Component {
   };
 
   static defaultProps = {
-    colors: {
-      text: '#000000'
+    styles: {
+      text: {
+        color: '#000000'
+      }
     }
   }
 
   render() {
     return (
       <View>
-        <Text style={[styles.text, {
-          color: this.props.colors.text
-        }]}>
+        <Text style={[styles.text, this.props.styles.text]}>
           {this.props.title}
         </Text>
         <RoutineAnswer {...this.props}></RoutineAnswer>

@@ -16,10 +16,9 @@ export default class RoutineAnswer extends Component {
 
   renderAnswer(key) {
     let description = this.props.numbered ? '' + key + '.' : '';
-    return <JournalTextInput
+    return <JournalTextInput {...this.props}
       key={key}
       description={description}
-      colors={this.props.colors}
     ></JournalTextInput>
   }
 

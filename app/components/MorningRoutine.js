@@ -12,9 +12,16 @@ export default class MorningRoutine extends Component {
 
 const routine = {
   title: 'Morning Routine',
-  colors: {
-    text: dayDark,
-    background: dayLight
+  styles: {
+    container: {
+      backgroundColor: dayLight
+    },
+    text: {
+      color: dayDark
+    },
+    input: {
+      borderBottomColor: dayDark
+    }
   },
   content: [
     {

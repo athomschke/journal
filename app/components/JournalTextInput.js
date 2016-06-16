@@ -13,8 +13,13 @@ export default class JournalTextInput extends Component {
 	static defaultProps = {
 		text: '',
 		description: '',
-    colors: {
-      dark: '#FFFFFF'
+    styles: {
+      text: {
+        color: '#000000'
+      },
+      input: {
+        borderBottomColor: '#000000'
+      }
     }
 	}
 
@@ -31,11 +36,10 @@ export default class JournalTextInput extends Component {
 
   renderDescription() {
     if (this.props.description !== '') {
-      return (<Text
-        style={[styles.description, {
-          color: this.props.colors.text
-        }]}
-      >{this.props.description}</Text>);
+      return (<Text style={[styles.description, this.props.styles.text]}>
+          {this.props.description}
+        </Text>
+      );
     }
   }
 
@@ -44,16 +48,12 @@ export default class JournalTextInput extends Component {
     return (
       <View style={styles.container}>
         {this.renderDescription()}
-        <View style={[styles.inputContainer, {
-          borderBottomColor: this.props.colors.text
-        }]}><TextInput
-          style={[styles.input, {
-            borderBottomColor: this.props.colors.text,
-            color: this.props.colors.text,
-          }]}
-          onChangeText={that.onChangeText.bind(that)}
-          value={that.state.text}
-        /></View>
+        <View style={[styles.inputContainer, this.props.styles.input]}>
+          <TextInput style={[styles.input, this.props.styles.text]}
+            onChangeText={that.onChangeText.bind(that)}
+            value={that.state.text}
+          ></TextInput>
+        </View>
       </View>
     )
   }

@@ -12,9 +12,16 @@ export default class NightRoutine extends Component {
 
 const routine = {
   title: 'Night Routine',
-  colors: {
-    background: nightDark,
-    text: nightLight
+  styles: {
+    container: {
+      backgroundColor: nightDark
+    },
+    text: {
+      color: nightLight
+    },
+    input: {
+      borderBottomColor: nightLight
+    }
   },
   content: [
     {

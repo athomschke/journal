@@ -8,13 +8,18 @@ export default class Routine extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.array,
-    colors: PropTypes.object
+    styles: PropTypes.object
   };
 
   static defaultProps = {
     content: [],
-    colors: {
-      text: '#000000'
+    styles: {
+      text: {
+        color: '#000000'
+      },
+      container: {
+        backgroundColor: '#FFFFFF'
+      }
     }
   }
 
@@ -22,8 +27,7 @@ export default class Routine extends Component {
     let sections = [];
     this.props.content.forEach((sectionProperties, index) => {
       sections.push(
-        <RoutineSection {...sectionProperties}
-          colors={this.props.colors}
+        <RoutineSection {...this.props} {...sectionProperties}
           key={''+index}
         ></RoutineSection>
       )
@@ -33,21 +37,15 @@ export default class Routine extends Component {
 
   renderTitle() {
     return (
-      <Text style={[styles.headline, {
-        color: this.props.colors.text
-      }]}>
+      <Text style={[styles.headline, this.props.styles.text]}>
         {this.props.title}
       </Text>
     )
   }
 
   render() {
-    let containerStyle = {
-      backgroundColor: this.props.colors.background,
-      padding: margin
-    }
     return (
-      <View style={containerStyle}>
+      <View style={[styles.container, this.props.styles.container]}>
         {this.renderTitle()}
         {this.renderSections()}
       </View>
@@ -60,5 +58,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: margin,
     fontSize: headlineFontSize
+  },
+  container: {
+    padding: margin
   }
 });
