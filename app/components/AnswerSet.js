@@ -3,7 +3,7 @@ import {StyleSheet, Text, View } from 'react-native';
 import JournalTextInput from './JournalTextInput';
 import { margin } from '../constants/style';
 
-export default class RoutineAnswer extends Component {
+export default class AnswerSet extends Component {
 
   static propTypes = {
     count: PropTypes.number,
