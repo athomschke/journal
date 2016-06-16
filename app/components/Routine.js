@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import RoutineSection from './RoutineSection';
+import Topic from './Topic';
 import {headlineFontSize, margin} from '../constants/style';
 
 export default class Routine extends Component {
@@ -23,16 +23,16 @@ export default class Routine extends Component {
     }
   }
 
-  renderSections() {
-    let sections = [];
-    this.props.content.forEach((sectionProperties, index) => {
-      sections.push(
-        <RoutineSection {...this.props} {...sectionProperties}
+  renderTopics() {
+    let topics = [];
+    this.props.content.forEach((topicProperties, index) => {
+      topics.push(
+        <Topic {...this.props} {...topicProperties}
           key={''+index}
-        ></RoutineSection>
+        ></Topic>
       )
     })
-    return <View>{sections}</View>;
+    return <View>{topics}</View>;
   }
 
   renderTitle() {
@@ -47,7 +47,7 @@ export default class Routine extends Component {
     return (
       <View style={[styles.container, this.props.styles.container]}>
         {this.renderTitle()}
-        {this.renderSections()}
+        {this.renderTopics()}
       </View>
     )
   }

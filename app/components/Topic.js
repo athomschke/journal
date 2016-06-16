@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import RoutineAnswer from './RoutineAnswer';
 import {contentFontSize, margin} from '../constants/style';
 
-export default class RoutineSection extends Component {
+export default class Topic extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
