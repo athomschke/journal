@@ -33,7 +33,7 @@ export default class AnswerSet extends Component {
   }
 
   renderAnswer() {
-    return <JournalTextInput {...this.props} ></JournalTextInput>
+    return <JournalTextInput {...this.props}></JournalTextInput>
   }
 
   render() {
