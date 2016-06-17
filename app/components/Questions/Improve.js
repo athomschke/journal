@@ -7,7 +7,7 @@ import SingleAnswerBlock from '../SingleAnswerBlock';
 export default class Improve extends Component {
 
   render() {
-    return (<SingleAnswerBlock
+    return (<SingleAnswerBlock {...this.props}
         textColor={nightLight}
         title={improve}
     ></SingleAnswerBlock>)

@@ -25,7 +25,7 @@ export default class JournalTextInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: props.text
+      text: props.value
     }
   }
 
@@ -37,7 +37,7 @@ export default class JournalTextInput extends Component {
     let that = this;
     return (
       <View style={[styles.input, this.props.styles.input]}>
-        <TextInput style={this.props.styles.text}
+        <TextInput style={[this.props.styles.text, styles.input]}
           onChangeText={that.onChangeText.bind(that)}
           value={that.state.text}
         ></TextInput>
@@ -48,6 +48,7 @@ export default class JournalTextInput extends Component {
 
 const styles = StyleSheet.create({
   input: {
+    height: 20,
     flex: 1,
     borderBottomWidth: 1
   }

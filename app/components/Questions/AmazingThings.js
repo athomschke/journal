@@ -7,7 +7,7 @@ import TripleAnswerBlock from '../TripleAnswerBlock';
 export default class AmazingThings extends Component {
 
   render() {
-    return (<TripleAnswerBlock
+    return (<TripleAnswerBlock {...this.props}
         textColor={nightLight}
         title={amazingThings}
     ></TripleAnswerBlock>)

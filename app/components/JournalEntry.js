@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
-import Affirmation from './Questions/Affirmation';
-import AmazingThings from './Questions/AmazingThings';
-import Grateful from './Questions/Grateful';
-import Improve from './Questions/Improve';
-import MakesGreat from './Questions/MakesGreat';
+import AffirmationContainer from '../containers/Affirmation';
+import AmazingThings from '../containers/AmazingThings';
+import Grateful from '../containers/Grateful';
+import Improve from '../containers/Improve';
+import MakesGreat from '../containers/MakesGreat';
 import { morning, night } from '../constants/titles';
 import {contentFontSize, margin, nightLight, dayLight, dayDark, nightDark, headlineFontSize} from '../constants/style';
 
@@ -21,7 +21,7 @@ export default class JournalEntry extends Component {
           <View>
             <Grateful></Grateful>
             <MakesGreat></MakesGreat>
-            <Affirmation></Affirmation>
+            <AffirmationContainer></AffirmationContainer>
           </View>
         </View>
         <View style={[styles.container, styles.containerNight]}>

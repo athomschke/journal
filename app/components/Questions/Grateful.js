@@ -7,7 +7,7 @@ import TripleAnswerBlock from '../TripleAnswerBlock';
 export default class Grateful extends Component {
 
   render() {
-    return (<TripleAnswerBlock
+    return (<TripleAnswerBlock {...this.props}
         textColor={dayDark}
         title={grateful}
     ></TripleAnswerBlock>)

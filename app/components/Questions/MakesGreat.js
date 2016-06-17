@@ -7,7 +7,7 @@ import SingleAnswerBlock from '../SingleAnswerBlock';
 export default class MakesGreat extends Component {
 
   render() {
-    return (<SingleAnswerBlock
+    return (<SingleAnswerBlock {...this.props}
         textColor={dayDark}
         title={makesGreat}
     ></SingleAnswerBlock>)

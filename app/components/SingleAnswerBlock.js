@@ -8,11 +8,17 @@ export default class SingleAnswerBlock extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
-    textColor: PropTypes.string.isRequired
+    textColor: PropTypes.string.isRequired,
+    value: PropTypes.string
+  }
+
+  static defaultProps = {
+    value: ''
   }
 
   inputProps() {
     return {
+      value: this.props.value,
       styles: {
         text: {
           color: this.props.textColor
