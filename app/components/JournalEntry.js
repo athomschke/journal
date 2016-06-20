@@ -10,6 +10,10 @@ import {contentFontSize, margin, nightLight, dayLight, dayDark, nightDark, headl
 
 export default class JournalEntry extends Component {
 
+  static propTypes = {
+    index: PropTypes.number.isRequired
+  }
+
   render() {
     let renderedRoutines = [];
     return (

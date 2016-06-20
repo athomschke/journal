@@ -1,34 +1,39 @@
-export const changeAffirmation = (anArray) => {
+export const changeAffirmation = (anArray, index) => {
   return {
     type: 'CHANGE_AFFIRMATION',
-    anArray
+    anArray,
+    index
   }
 }
 
-export const changeAmazingThings = (anArray) => {
+export const changeAmazingThings = (anArray, index) => {
   return {
     type: 'CHANGE_AMAZING_THINGS',
-    anArray
+    anArray,
+    index
   }
 }
 
-export const changeGrateful = (anArray) => {
+export const changeGrateful = (anArray, index) => {
   return {
     type: 'CHANGE_GRATEFUL',
-    anArray
+    anArray,
+    index
   }
 }
 
-export const changeImprove = (anArray) => {
+export const changeImprove = (anArray, index) => {
   return {
     type: 'CHANGE_IMPROVE',
-    anArray
+    anArray,
+    index
   }
 }
 
-export const changeMakesGreat = (anArray) => {
+export const changeMakesGreat = (anArray, index) => {
   return {
     type: 'CHANGE_MAKES_GREAT',
-    anArray
+    anArray,
+    index
   }
 }

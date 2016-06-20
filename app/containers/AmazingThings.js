@@ -9,10 +9,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChangeText: (anArray) => {
-      dispatch(changeAmazingThings(anArray))
+      dispatch(changeAmazingThings(anArray, ownProps.index))
     }
   }
 }

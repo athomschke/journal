@@ -20,7 +20,9 @@ export default class Journal extends Component {
 
     return (
       <Provider store={store}>
-        <JournalEntry></JournalEntry>
+        <JournalEntry
+          index={0}
+        ></JournalEntry>
       </Provider>
     );
   }

@@ -7,7 +7,10 @@ const journal = (state = [], action) => {
     case 'CHANGE_GRATEFUL':
     case 'CHANGE_IMPROVE':
     case 'CHANGE_MAKES_GREAT':
-      return [day(state[0], action)];
+      state[action.index] = day(state[action.index], action);
+      return state;
+    case 'ADD_PAGE':
+      return state.concat([{}])
   }
 }
 
