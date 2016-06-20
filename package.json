@@ -14,6 +14,25 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "babel-jest": "^12.1.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
     "jest-cli": "^12.1.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "node_modules/react-native/jestSupport/preprocessor.js",
+    "setupEnvScriptFile": "react-native.jestSupport.env.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "packager/react-packager/src/Activity/"
+    ],
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "promise",
+      "source-map"
+    ]
   }
 }
