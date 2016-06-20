@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
 import {affirmation} from '../constants/titles';
 import {contentFontSize, margin, dayDark} from '../constants/style';
-import JournalTextInput from './JournalTextInput';
 import { cloneDeep } from 'lodash';
 
 export default class SingleAnswerBlock extends Component {
@@ -10,11 +9,13 @@ export default class SingleAnswerBlock extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired,
-    value: PropTypes.arrayOf(PropTypes.string)
+    value: PropTypes.arrayOf(PropTypes.string),
+    isList: PropTypes.bool
   }
 
   static defaultProps = {
-    value: []
+    value: [],
+    isList: false
   }
 
   onChangeText(index, aString) {
@@ -53,7 +54,7 @@ export default class SingleAnswerBlock extends Component {
     });
   }
 
-  render() {
+  renderTripleInput() {
     let that = this;
     let styles = this.styles();
     return (<View>
@@ -89,6 +90,31 @@ export default class SingleAnswerBlock extends Component {
         ></TextInput>
       </View>
     </View>)
+  }
+
+  renderSingleInput() {
+    let that = this;
+    let styles = this.styles();
+    return (<View>
+      <Text style={styles.headline}>{this.props.title}</Text>
+      <View style={[styles.input, styles.container]}>
+        <TextInput
+          value={this.props.value.length > 0 ? this.props.value[0] : ''}
+          style={[styles.text, styles.input]}
+          onChangeText = {(aString) => {
+            that.onChangeText(0, aString)}
+          }
+        ></TextInput>
+      </View>
+    </View>)
+  }
+
+  render() {
+    if (this.props.isList) {
+      return this.renderTripleInput();
+    } else {
+      return this.renderSingleInput();
+    }
   }
 
 }

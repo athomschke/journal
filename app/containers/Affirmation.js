@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChangeText: (aString) => {
-      dispatch(changeAffirmation(aString))
+    onChangeText: (anArray) => {
+      dispatch(changeAffirmation(anArray))
     }
   }
 }

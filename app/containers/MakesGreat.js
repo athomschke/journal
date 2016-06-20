@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChangeText: (aString) => {
-      dispatch(changeMakesGreat(aString))
+    onChangeText: (anArray) => {
+      dispatch(changeMakesGreat(anArray))
     }
   }
 }

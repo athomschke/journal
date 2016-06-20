@@ -1,7 +1,7 @@
-export const changeAffirmation = (aString) => {
+export const changeAffirmation = (anArray) => {
   return {
     type: 'CHANGE_AFFIRMATION',
-    aString
+    anArray
   }
 }
 
@@ -19,16 +19,16 @@ export const changeGrateful = (anArray) => {
   }
 }
 
-export const changeImprove = (aString) => {
+export const changeImprove = (anArray) => {
   return {
     type: 'CHANGE_IMPROVE',
-    aString
+    anArray
   }
 }
 
-export const changeMakesGreat = (aString) => {
+export const changeMakesGreat = (anArray) => {
   return {
     type: 'CHANGE_MAKES_GREAT',
-    aString
+    anArray
   }
 }

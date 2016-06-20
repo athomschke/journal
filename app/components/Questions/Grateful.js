@@ -2,14 +2,15 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import {grateful} from '../../constants/titles';
 import {contentFontSize, margin, dayDark} from '../../constants/style';
-import TripleAnswerBlock from '../TripleAnswerBlock';
+import AnswerBlock from '../AnswerBlock';
 
 export default class Grateful extends Component {
 
   render() {
-    return (<TripleAnswerBlock {...this.props}
+    return (<AnswerBlock {...this.props}
         textColor={dayDark}
         title={grateful}
-    ></TripleAnswerBlock>)
+        isList={true}
+    ></AnswerBlock>)
   }
 }
