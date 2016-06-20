@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1466428468121" clover="3.2.0">
+	<project timestamp="1466428468121"  name="All Files" >
+		<metrics statements="22"  coveredstatements="22"  conditionals="5"  coveredconditionals="5"  methods="6"  coveredmethods="6"  elements="33"  coveredelements="33"  complexity="0"  packages="3"  files="3"  classes="3"  loc="62"  ncloc="62" />
+		<package name="Journal" >
+			<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="0"  coveredmethods="0" />
+			<file name="react-native.jestSupport.env.js"  path="/Users/athomschke/dev/Journal/react-native.jestSupport.env.js" >
+				<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="0"  coveredmethods="0" />
+				<line num="11"  count="2"  type="stmt" />
+				<line num="13"  count="2"  type="stmt" />
+				<line num="14"  count="2"  type="stmt" />
+				<line num="19"  count="2"  type="stmt" />
+				<line num="20"  count="2"  type="stmt" />
+			</file>
+		</package>
+		<package name="Journal.app.actions" >
+			<metrics statements="10"  coveredstatements="10"  conditionals="0"  coveredconditionals="0"  methods="5"  coveredmethods="5" />
+			<file name="writing.js"  path="/Users/athomschke/dev/Journal/app/actions/writing.js" >
+				<metrics statements="10"  coveredstatements="10"  conditionals="0"  coveredconditionals="0"  methods="5"  coveredmethods="5" />
+				<line num="1"  count="1"  type="stmt" />
+				<line num="2"  count="1"  type="stmt" />
+				<line num="8"  count="1"  type="stmt" />
+				<line num="9"  count="1"  type="stmt" />
+				<line num="15"  count="1"  type="stmt" />
+				<line num="16"  count="1"  type="stmt" />
+				<line num="22"  count="1"  type="stmt" />
+				<line num="23"  count="1"  type="stmt" />
+				<line num="29"  count="1"  type="stmt" />
+				<line num="30"  count="1"  type="stmt" />
+			</file>
+		</package>
+		<package name="Journal.app.reducers" >
+			<metrics statements="7"  coveredstatements="7"  conditionals="5"  coveredconditionals="5"  methods="1"  coveredmethods="1" />
+			<file name="day.js"  path="/Users/athomschke/dev/Journal/app/reducers/day.js" >
+				<metrics statements="7"  coveredstatements="7"  conditionals="5"  coveredconditionals="5"  methods="1"  coveredmethods="1" />
+				<line num="1"  count="1"  type="stmt" />
+				<line num="2"  count="15"  type="cond"  truecount="5"  falsecount="0" />
+				<line num="4"  count="3"  type="stmt" />
+				<line num="6"  count="3"  type="stmt" />
+				<line num="8"  count="3"  type="stmt" />
+				<line num="10"  count="3"  type="stmt" />
+				<line num="12"  count="3"  type="stmt" />
+			</file>
+		</package>
+	</project>
+</coverage>

@@ -1,4 +1,4 @@
-const day = (state, action) => {
+const day = (state = undefined, action) => {
   switch (action.type) {
     case 'CHANGE_AFFIRMATION':
       return { ...state, ...{ affirmation: action.anArray } }
@@ -10,8 +10,6 @@ const day = (state, action) => {
       return { ...state, ...{ improve: action.anArray } }
     case 'CHANGE_MAKES_GREAT':
       return { ...state, ...{ makesGreat: action.anArray } }
-    default:
-      return state
   }
 }
 

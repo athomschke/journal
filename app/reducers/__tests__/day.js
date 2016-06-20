@@ -9,25 +9,39 @@ let action = (routineName, value) => {
                     routineName.toUpperCase();
   return {
     type: 'CHANGE_' + typeSuffix,
-    anArray: ['I am a strong woman']
+    anArray: value
   };
 }
 
-let runForRoutineNamed = (routineName) => {
+let sampleValue = (useTriple) => {
+  return useTriple ? [
+    'Smelling a flower',
+    'Doing 10 push-ups',
+    'Calling mom'
+  ] : [
+    'I can run'
+  ];
+}
+
+let sampleNewValue = () => {
+  return ['~'];
+}
+
+let runForRoutineNamed = (routineName, useTriple) => {
 
   describe('Reducing ' + routineName, () => {
+
     it('handles initial state', () => {
-      let value = ['I am a strong woman'];
+      let value = sampleValue(useTriple);
       let state = {};
-      state[routineName] = undefined
       let newState = day(state, action(routineName, value));
       expect(newState[routineName]).toEqual(value);
     });
 
     it('changes existing value', () => {
-      let value = ['I am a strong woman'];
+      let value = sampleValue(useTriple);;
       let state = {};
-      state[routineName] = ['I am a strong man'];
+      state[routineName] = sampleNewValue;
       let newState = day(state, action(routineName, value));
       expect(newState[routineName]).toEqual(value);
     });
@@ -35,15 +49,18 @@ let runForRoutineNamed = (routineName) => {
     it('preserves other routines', () => {
       let value = ['I am a strong woman'];
       let state = { foo: ['bar'] };
-      state[routineName] = ['I am a strong man'];
+      state[routineName] = sampleNewValue;
       let newState = day(state, action(routineName, value));
       expect(newState.foo).toEqual(['bar']);
       expect(newState[routineName]).toEqual(value);
     });
 
   });
+
 }
 
 runForRoutineNamed('affirmation');
+runForRoutineNamed('amazingThings', true);
+runForRoutineNamed('grateful', true);
 runForRoutineNamed('improve');
 runForRoutineNamed('makesGreat');
