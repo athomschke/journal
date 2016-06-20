@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TextInput } from 'react-native';
 import {affirmation} from '../constants/titles';
 import {contentFontSize, margin, dayDark} from '../constants/style';
 import JournalTextInput from './JournalTextInput';
@@ -16,21 +16,6 @@ export default class SingleAnswerBlock extends Component {
     value: ''
   }
 
-  inputProps() {
-    return {
-      onChangeText: this.props.onChangeText,
-      value: this.props.value,
-      styles: {
-        text: {
-          color: this.props.textColor
-        },
-        input: {
-          borderBottomColor: this.props.textColor
-        }
-      }
-    }
-  }
-
   styles() {
     return StyleSheet.create({
       container: {
@@ -38,21 +23,35 @@ export default class SingleAnswerBlock extends Component {
         marginTop: 20,
         marginBottom: 20
       },
-      text: {
+      headline: {
         fontSize: contentFontSize,
         marginTop: margin,
         marginBottom: margin,
         color: this.props.textColor
+      },
+      text: {
+        color: this.props.textColor
+      },
+      input: {
+        height: 20,
+        flex: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: this.props.textColor
       }
     });
   }
 
   render() {
+    let that = this;
     let styles = this.styles();
     return (<View>
-      <Text style={styles.text}>{this.props.title}</Text>
-      <View style={styles.container}>
-        <JournalTextInput {...this.inputProps()}></JournalTextInput>
+      <Text style={styles.headline}>{this.props.title}</Text>
+      <View style={[styles.input, styles.container]}>
+        <TextInput
+          value={this.props.value}
+          style={[styles.text, styles.input]}
+          onChangeText = {that.props.onChangeText.bind(that)}
+        ></TextInput>
       </View>
     </View>)
   }

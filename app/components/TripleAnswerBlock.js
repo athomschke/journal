@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TextInput } from 'react-native';
 import {affirmation} from '../constants/titles';
 import {contentFontSize, margin, dayDark} from '../constants/style';
 import JournalTextInput from './JournalTextInput';
@@ -23,19 +23,6 @@ export default class SingleAnswerBlock extends Component {
     this.props.onChangeText(newValue);
   }
 
-  inputProps() {
-    return {
-      styles: {
-        text: {
-          color: this.props.textColor
-        },
-        input: {
-          borderBottomColor: this.props.textColor
-        }
-      }
-    }
-  }
-
   styles() {
     return StyleSheet.create({
       description: {
@@ -48,11 +35,20 @@ export default class SingleAnswerBlock extends Component {
         marginTop: 20,
         marginBottom: 20
       },
-      text: {
+      headline: {
         fontSize: contentFontSize,
         marginTop: margin,
         marginBottom: margin,
         color: this.props.textColor
+      },
+      text: {
+        color: this.props.textColor
+      },
+      input: {
+        height: 20,
+        flex: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: this.props.textColor
       }
     });
   }
@@ -61,36 +57,36 @@ export default class SingleAnswerBlock extends Component {
     let that = this;
     let styles = this.styles();
     return (<View>
-      <Text style={styles.text}>{this.props.title}</Text>
-      <View style={styles.container}>
+      <Text style={styles.headline}>{this.props.title}</Text>
+      <View style={[styles.input, styles.container]}>
         <Text style={[styles.description]}>1.</Text>
-        <JournalTextInput
-          {...this.inputProps()}
+        <TextInput
+          style={[styles.text, styles.input]}
           onChangeText={(aString) => {
             that.onChangeText(0, aString)
           }}
           value = { this.props.value[0] || '' }
-        ></JournalTextInput>
+        ></TextInput>
       </View>
-      <View style={styles.container}>
+      <View style={[styles.input, styles.container]}>
         <Text style={[styles.description]}>2.</Text>
-        <JournalTextInput
-          {...this.inputProps()}
+        <TextInput
+          style={[styles.text, styles.input]}
           onChangeText={(aString) => {
             that.onChangeText(1, aString)
           }}
           value = { this.props.value[1] || '' }
-        ></JournalTextInput>
+        ></TextInput>
       </View>
-      <View style={styles.container}>
+      <View style={[styles.input, styles.container]}>
         <Text style={[styles.description]}>3.</Text>
-        <JournalTextInput
-          {...this.inputProps()}
+        <TextInput
+          style={[styles.text, styles.input]}
           onChangeText={(aString) => {
             that.onChangeText(2, aString)
           }}
           value = { this.props.value[2] || '' }
-        ></JournalTextInput>
+        ></TextInput>
       </View>
     </View>)
   }
