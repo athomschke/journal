@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Grateful from '../components/Questions/Grateful';
-import { gratefulChange } from '../actions/writing';
+import { changeGrateful } from '../actions/writing';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChangeText: (aString) => {
-      dispatch(gratefulChange(aString))
+    onChangeText: (anArray) => {
+      dispatch(changeGrateful(anArray))
     }
   }
 }

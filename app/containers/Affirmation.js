@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Affirmation from '../components/Questions/Affirmation';
-import { affirmationChange } from '../actions/writing';
+import { changeAffirmation } from '../actions/writing';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onChangeText: (aString) => {
-      dispatch(affirmationChange(aString))
+      dispatch(changeAffirmation(aString))
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import MakesGreat from '../components/Questions/MakesGreat';
-import { makesGreatChange } from '../actions/writing';
+import { changeMakesGreat } from '../actions/writing';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onChangeText: (aString) => {
-      dispatch(makesGreatChange(aString))
+      dispatch(changeMakesGreat(aString))
     }
   }
 }

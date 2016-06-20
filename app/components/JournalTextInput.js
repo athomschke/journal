@@ -6,7 +6,8 @@ export default class JournalTextInput extends Component {
   static propTypes = {
 		value: PropTypes.string,
     description: PropTypes.string,
-    colors: PropTypes.object
+    colors: PropTypes.object,
+    onChangeText: PropTypes.func.isRequired
 	};
 
 	static defaultProps = {
@@ -30,7 +31,7 @@ export default class JournalTextInput extends Component {
   }
 
   onChangeText(text) {
-    this.setState({text: text})
+    this.props.onChangeText(text);
   }
 
   render() {
@@ -39,7 +40,7 @@ export default class JournalTextInput extends Component {
       <View style={[styles.input, this.props.styles.input]}>
         <TextInput style={[this.props.styles.text, styles.input]}
           onChangeText={that.onChangeText.bind(that)}
-          value={that.state.text}
+          value={that.props.value}
         ></TextInput>
       </View>
     )

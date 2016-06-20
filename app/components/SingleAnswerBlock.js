@@ -18,6 +18,7 @@ export default class SingleAnswerBlock extends Component {
 
   inputProps() {
     return {
+      onChangeText: this.props.onChangeText,
       value: this.props.value,
       styles: {
         text: {

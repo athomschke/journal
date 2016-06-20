@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import AmazingThings from '../components/Questions/AmazingThings';
-import { amazingThingsChange } from '../actions/writing';
+import { changeAmazingThings } from '../actions/writing';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChangeText: (aString) => {
-      dispatch(amazingThingsChange(aString))
+    onChangeText: (anArray) => {
+      dispatch(changeAmazingThings(anArray))
     }
   }
 }

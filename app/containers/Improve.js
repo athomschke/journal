@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Improve from '../components/Questions/Improve';
-import { improveChange } from '../actions/writing';
+import { changeImprove } from '../actions/writing';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onChangeText: (aString) => {
-      dispatch(improveChange(aString))
+      dispatch(changeImprove(aString))
     }
   }
 }
