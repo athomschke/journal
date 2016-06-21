@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
 import AffirmationContainer from '../containers/Affirmation';
 import AmazingThings from '../containers/AmazingThings';
-import Grateful from '../containers/Grateful';
+import GratefulContainer from '../containers/Grateful';
 import Improve from '../containers/Improve';
 import MakesGreat from '../containers/MakesGreat';
 import { morning, night } from '../constants/titles';
@@ -23,7 +23,7 @@ export default class JournalEntry extends Component {
             {morning}
           </Text>
           <View>
-            <Grateful></Grateful>
+            <GratefulContainer></GratefulContainer>
             <MakesGreat></MakesGreat>
             <AffirmationContainer></AffirmationContainer>
           </View>

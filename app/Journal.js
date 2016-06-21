@@ -8,15 +8,15 @@ import day from './reducers/day'
 export default class Journal extends Component {
 
   render() {
-    let initialState = [{
+    let initialState = {
       affirmation: ['I am a strong black man'],
       amazingThings: ['only one good thing today'],
       grateful: ['sun', 'food', 'yoga'],
       improve: undefined,
       makesGreat: ['seeing Lisa again']
-    }]
+    }
 
-    let store = createStore(journal, initialState);
+    let store = createStore(day, initialState);
 
     return (
       <Provider store={store}>

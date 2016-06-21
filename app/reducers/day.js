@@ -10,6 +10,8 @@ const day = (state = undefined, action) => {
       return { ...state, ...{ improve: action.anArray } }
     case 'CHANGE_MAKES_GREAT':
       return { ...state, ...{ makesGreat: action.anArray } }
+    default:
+      return state
   }
 }
 
