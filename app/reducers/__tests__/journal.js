@@ -1,20 +1,16 @@
-import React from 'react';
-import journal from '../journal';
+jest.setMock(`react-native`, {
+  AsyncStorage: {
+    setItem: jest.fn(),
+  },
+});
+const ReactNative = require(`react-native`);
+const journal = require('../journal').default;
 
 describe('Reducing a whole journal', () => {
 
   it('can handle the initial state', () => {
-    let value = ['I am strong'];
-    let state = [];
-    let action = {
-      type: 'CHANGE_AFFIRMATION',
-      anArray: value,
-      index: 0
-    }
-    let newState = journal(state, action);
-    expect(newState).toEqual([{
-      affirmation: ['I am strong']
-    }]);
+    let newState = journal(undefined, {});
+    expect(newState).toEqual([{}]);
   });
 
   it('can change content on a single page', () => {

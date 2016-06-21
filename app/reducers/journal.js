@@ -1,5 +1,6 @@
 import day from './day';
 import { last, isEmpty } from 'lodash';
+import { AsyncStorage } from 'react-native';
 
 let isEntryEmpty = (entry) => {
   return isEmpty(entry.affirmation) &&
@@ -9,21 +10,23 @@ let isEntryEmpty = (entry) => {
     isEmpty(entry.amazingThings)
 }
 
-const journal = (state = [], action) => {
+const journal = (state = [{}], action) => {
   switch (action.type) {
     case 'CHANGE_AFFIRMATION':
     case 'CHANGE_AMAZING_THINGS':
     case 'CHANGE_GRATEFUL':
     case 'CHANGE_IMPROVE':
     case 'CHANGE_MAKES_GREAT':
-      let newState = day(state, action);
-      if(action.index === state.length - 1 && !isEntryEmpty(last(newState))) {
-        newState.push({});
+      state = day(state, action);
+      if(action.index === state.length - 1 && !isEntryEmpty(last(state))) {
+        state.push({});
       }
-      return newState;
-    default:
-      return state
+    case 'SET_INITIAL_STATE':
+      AsyncStorage.setItem('Journal',  JSON.stringify({
+        Journal: state
+      }));
   }
+  return state;
 }
 
 export default journal
