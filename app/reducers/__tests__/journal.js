@@ -21,7 +21,7 @@ describe('Reducing a whole journal', () => {
     let value = ['I am strong'];
     let state = [{
       improve: 'eat less junkfood'
-    }];
+    }, {}];
     let action = {
       type: 'CHANGE_AFFIRMATION',
       anArray: value,
@@ -31,7 +31,7 @@ describe('Reducing a whole journal', () => {
     expect(newState).toEqual([{
       affirmation: ['I am strong'],
       improve: 'eat less junkfood'
-    }]);
+    }, {}]);
   });
 
   it('can change content on the second page', () => {
@@ -40,7 +40,7 @@ describe('Reducing a whole journal', () => {
       improve: ['eat more junkfood']
     }, {
       improve: ['eat less junkfood']
-    }];
+    }, {}];
     let action = {
       type: 'CHANGE_IMPROVE',
       anArray: value,
@@ -51,22 +51,7 @@ describe('Reducing a whole journal', () => {
       improve: ['eat more junkfood']
     }, {
       improve: ['eat way less junkfood']
-    }]);
-  });
-
-  it('can add a second page', () => {
-    let state = [{
-      improve: 'eat less junkfood'
-    }];
-    let action = {
-      type: 'ADD_PAGE'
-    }
-    let newState = journal(state, action);
-    expect(newState).toEqual([{
-      improve: 'eat less junkfood'
-    }, {
-
-    }]);
+    }, {}]);
   });
 
 })

@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import {View} from 'react-native';
 import Journal from './containers/Journal';
-import day from './reducers/day'
+import journal from './reducers/journal'
 
 export default class Application extends Component {
 
@@ -22,7 +22,7 @@ export default class Application extends Component {
       makesGreat: ['seeing Lisa again']
     }]
 
-    let store = createStore(day, initialState);
+    let store = createStore(journal, initialState);
 
     return (
       <Provider store={store}>

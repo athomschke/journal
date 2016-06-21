@@ -1,4 +1,13 @@
-import day from './day'
+import day from './day';
+import { last, isEmpty } from 'lodash';
+
+let isEntryEmpty = (entry) => {
+  return isEmpty(entry.affirmation) &&
+    isEmpty(entry.improve) &&
+    isEmpty(entry.makesGreat) &&
+    isEmpty(entry.grateful) &&
+    isEmpty(entry.amazingThings)
+}
 
 const journal = (state = [], action) => {
   switch (action.type) {
@@ -7,9 +16,13 @@ const journal = (state = [], action) => {
     case 'CHANGE_GRATEFUL':
     case 'CHANGE_IMPROVE':
     case 'CHANGE_MAKES_GREAT':
-      return day(state, action);
-    case 'ADD_PAGE':
-      return state.concat([{}])
+      let newState = day(state, action);
+      if(action.index === state.length - 1 && !isEntryEmpty(last(newState))) {
+        newState.push({});
+      }
+      return newState;
+    default:
+      return state
   }
 }
 
