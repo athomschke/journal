@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import {View} from 'react-native';
-import Journal from './components/Journal';
+import Journal from './containers/Journal';
 import day from './reducers/day'
 
 export default class Application extends Component {
