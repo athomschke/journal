@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { View } from 'react-native';
 import JournalEntryContainer from '../containers/JournalEntry';
 
 export default class Journal extends Component {
@@ -8,10 +9,15 @@ export default class Journal extends Component {
   }
 
   render() {
+    let pages = [];
+    for (let i = 0; i<this.props.pages; i++) {
+      pages.push(<JournalEntryContainer
+        key={i}
+        index={i}
+      ></JournalEntryContainer>)
+    }
     return (
-      <JournalEntryContainer
-        index={0}
-      ></JournalEntryContainer>
+      <View>{pages}</View>
     );
   }
 }
