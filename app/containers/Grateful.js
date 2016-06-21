@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Grateful from '../components/Questions/Grateful';
 import { changeGrateful } from '../actions/writing';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    value: state.grateful
+    value: state[ownProps.index].grateful
   }
 }
 

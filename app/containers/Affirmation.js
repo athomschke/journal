@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Affirmation from '../components/Questions/Affirmation';
 import { changeAffirmation } from '../actions/writing';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    value: state.affirmation
+    value: state[ownProps.index].affirmation
   }
 }
 

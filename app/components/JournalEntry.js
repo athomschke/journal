@@ -23,9 +23,9 @@ export default class JournalEntry extends Component {
             {morning}
           </Text>
           <View>
-            <GratefulContainer></GratefulContainer>
-            <MakesGreat></MakesGreat>
-            <AffirmationContainer></AffirmationContainer>
+            <GratefulContainer {...this.props}></GratefulContainer>
+            <MakesGreat {...this.props}></MakesGreat>
+            <AffirmationContainer {...this.props}></AffirmationContainer>
           </View>
         </View>
         <View style={[styles.container, styles.containerNight]}>
@@ -33,8 +33,8 @@ export default class JournalEntry extends Component {
             {night}
           </Text>
           <View>
-            <AmazingThings></AmazingThings>
-            <Improve></Improve>
+            <AmazingThings {...this.props}></AmazingThings>
+            <Improve {...this.props}></Improve>
           </View>
         </View>
       </ScrollView>

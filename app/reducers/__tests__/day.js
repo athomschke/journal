@@ -9,6 +9,7 @@ let action = (routineName, value) => {
                     routineName.toUpperCase();
   return {
     type: 'CHANGE_' + typeSuffix,
+    index: 0,
     anArray: value
   };
 }
@@ -33,26 +34,26 @@ let runForRoutineNamed = (routineName, useTriple) => {
 
     it('handles initial state', () => {
       let value = sampleValue(useTriple);
-      let state = {};
+      let state = [];
       let newState = day(state, action(routineName, value));
-      expect(newState[routineName]).toEqual(value);
+      expect(newState[0][routineName]).toEqual(value);
     });
 
     it('changes existing value', () => {
       let value = sampleValue(useTriple);;
-      let state = {};
-      state[routineName] = sampleNewValue;
+      let state = [{}];
+      state[0][routineName] = sampleNewValue;
       let newState = day(state, action(routineName, value));
-      expect(newState[routineName]).toEqual(value);
+      expect(newState[0][routineName]).toEqual(value);
     });
 
     it('preserves other routines', () => {
       let value = ['I am a strong woman'];
-      let state = { foo: ['bar'] };
-      state[routineName] = sampleNewValue;
+      let state = [{ foo: ['bar'] }];
+      state[0][routineName] = sampleNewValue;
       let newState = day(state, action(routineName, value));
-      expect(newState.foo).toEqual(['bar']);
-      expect(newState[routineName]).toEqual(value);
+      expect(newState[0].foo).toEqual(['bar']);
+      expect(newState[0][routineName]).toEqual(value);
     });
 
   });

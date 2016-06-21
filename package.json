@@ -28,7 +28,8 @@
       "redux",
       "redux-thunk",
       "fbjs",
-      "app"
+      "app",
+      "lodash"
     ],
     "collectCoverage": false,
     "verbose": true

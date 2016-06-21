@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Improve from '../components/Questions/Improve';
 import { changeImprove } from '../actions/writing';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    value: state.improve
+    value: state[ownProps.index].improve
   }
 }
 

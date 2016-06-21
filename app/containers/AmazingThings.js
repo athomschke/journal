@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import AmazingThings from '../components/Questions/AmazingThings';
 import { changeAmazingThings } from '../actions/writing';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    value: state.amazingThings
+    value: state[ownProps.index].amazingThings
   }
 }
 

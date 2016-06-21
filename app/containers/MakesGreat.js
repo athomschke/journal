@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import MakesGreat from '../components/Questions/MakesGreat';
 import { changeMakesGreat } from '../actions/writing';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    value: state.makesGreat
+    value: state[ownProps.index].makesGreat
   }
 }
 
