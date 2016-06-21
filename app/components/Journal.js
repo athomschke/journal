@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View } from 'react-native';
+import { SrollView, StyleSheet, Dimensions, View, ScrollView } from 'react-native';
 import JournalEntryContainer from '../containers/JournalEntry';
 
 export default class Journal extends Component {
@@ -11,13 +11,32 @@ export default class Journal extends Component {
   render() {
     let pages = [];
     for (let i = 0; i<this.props.pages; i++) {
-      pages.push(<JournalEntryContainer
-        key={i}
-        index={i}
-      ></JournalEntryContainer>)
+      pages.push(<View
+          style={styles.container}
+          key={i}
+        >
+          <JournalEntryContainer
+            index={i}
+          ></JournalEntryContainer>
+      </View>)
     }
     return (
-      <View>{pages}</View>
+      <ScrollView style={styles.scrollView}
+        pagingEnabled={true}
+        horizontal={true}
+      >
+        {pages}
+      </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  scrollView: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height
+  },
+  container: {
+    flex: 1
+  }
+});

@@ -14,6 +14,12 @@ export default class Application extends Component {
       grateful: ['sun', 'food', 'yoga'],
       improve: undefined,
       makesGreat: ['seeing Lisa again']
+    }, {
+      affirmation: ['I am a strong black man'],
+      amazingThings: ['only one good thing today'],
+      grateful: ['sun', 'food', 'yoga'],
+      improve: undefined,
+      makesGreat: ['seeing Lisa again']
     }]
 
     let store = createStore(day, initialState);
