@@ -1,11 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
-import Affirmation from './Questions/Affirmation';
-import AmazingThings from './Questions/AmazingThings';
-import Grateful from './Questions/Grateful';
-import Improve from './Questions/Improve';
-import MakesGreat from './Questions/MakesGreat';
-import { morning, night } from '../constants/titles';
+import AnswerBlock from './AnswerBlock';
+import { morning, night, affirmation, amazingThings, grateful, improve, makesGreat } from '../constants/titles';
 import {contentFontSize, margin, nightLight, dayLight, dayDark, nightDark, headlineFontSize} from '../constants/style';
 
 export default class JournalEntry extends Component {
@@ -19,9 +15,43 @@ export default class JournalEntry extends Component {
     value: {}
   }
 
+  renderAnswerBlock(textColor, title, isList, value, onChangeText) {
+    return (<AnswerBlock {...this.props}
+      textColor={textColor}
+      title={title}
+      isList={isList}
+      value={value}
+      onChangeText={onChangeText}>
+    ></AnswerBlock>)
+  }
+
+  renderGrateful() {
+    return this.renderAnswerBlock(dayDark,grateful, true,
+      this.props.value.grateful, this.props.onChangeGrateful)
+  }
+
+  renderMakesGreat() {
+    return this.renderAnswerBlock(dayDark,makesGreat, false,
+      this.props.value.makesGreat, this.props.onChangeMakesGreat)
+  }
+
+  renderAffirmation() {
+    return this.renderAnswerBlock(dayDark,affirmation, false,
+      this.props.value.affirmation, this.props.onChangeAffirmation)
+  }
+
+  renderAmazingThings() {
+    return this.renderAnswerBlock(nightLight,amazingThings, true,
+      this.props.value.amazingThings, this.props.onChangeAmazingThings)
+  }
+
+  renderImprove() {
+    return this.renderAnswerBlock(nightLight,improve, false,
+      this.props.value.improve, this.props.onChangeImprove)
+  }
+
   render() {
     let renderedRoutines = [];
-    let that = this;
     return (
       <ScrollView style={styles.scrollView}>
         <View style={[styles.container, styles.containerDay]}>
@@ -29,21 +59,9 @@ export default class JournalEntry extends Component {
             {morning}
           </Text>
           <View>
-            <Grateful
-              {...this.props}
-              value={this.props.value.grateful}
-              onChangeText={that.props.onChangeGrateful}>
-            </Grateful>
-            <MakesGreat
-              {...this.props}
-              value={this.props.value.makesGreat}
-              onChangeText={that.props.onChangeMakesGreat}>
-            ></MakesGreat>
-            <Affirmation
-              {...this.props}
-              value={this.props.value.affirmation}
-              onChangeText={that.props.onChangeAffirmation}>
-              ></Affirmation>
+            {this.renderGrateful()}
+            {this.renderMakesGreat()}
+            {this.renderAffirmation()}
           </View>
         </View>
         <View style={[styles.container, styles.containerNight]}>
@@ -51,16 +69,8 @@ export default class JournalEntry extends Component {
             {night}
           </Text>
           <View>
-            <AmazingThings
-              {...this.props}
-              value={this.props.value.amazingThings}
-              onChangeText={that.props.onChangeAmazingThings}>
-            ></AmazingThings>
-            <Improve
-              {...this.props}
-              value={this.props.value.improve}
-              onChangeText={that.props.onChangeImprove}>
-            ></Improve>
+            {this.renderAmazingThings()}
+            {this.renderImprove()}
           </View>
         </View>
       </ScrollView>
