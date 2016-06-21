@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import {View} from 'react-native';
-import JournalEntry from './components/JournalEntry';
+import JournalEntryContainer from './containers/JournalEntry';
 import day from './reducers/day'
 
 export default class Journal extends Component {
@@ -20,9 +20,9 @@ export default class Journal extends Component {
 
     return (
       <Provider store={store}>
-        <JournalEntry
+        <JournalEntryContainer
           index={0}
-        ></JournalEntry>
+        ></JournalEntryContainer>
       </Provider>
     );
   }
