@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import {View} from 'react-native';
-import JournalEntryContainer from './containers/JournalEntry';
+import Journal from './components/Journal';
 import day from './reducers/day'
 
-export default class Journal extends Component {
+export default class Application extends Component {
 
   render() {
     let initialState = [{
@@ -20,9 +20,7 @@ export default class Journal extends Component {
 
     return (
       <Provider store={store}>
-        <JournalEntryContainer
-          index={0}
-        ></JournalEntryContainer>
+        <Journal></Journal>
       </Provider>
     );
   }

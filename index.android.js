@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
-import Journal from './app/Journal';
+import Application from './app/Application';
 
 class AndroidJournal extends Component {
   render() {
-    return (<Journal></Journal>);
+    return (<Application></Application>);
   }
 }
 
