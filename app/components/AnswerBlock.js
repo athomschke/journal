@@ -4,7 +4,7 @@ import {affirmation} from '../constants/titles';
 import {contentFontSize, margin, dayDark} from '../constants/style';
 import { cloneDeep } from 'lodash';
 
-export default class SingleAnswerBlock extends Component {
+export default class AnswerBlock extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -54,58 +54,53 @@ export default class SingleAnswerBlock extends Component {
     });
   }
 
-  renderTripleInput() {
+  renderInputLine(index) {
+    let styles = this.styles();
     let that = this;
+    return (<TextInput
+      style={[styles.text, styles.input]}
+      onChangeText={(aString) => {
+        that.onChangeText(index, aString)
+      }}
+      value = { this.props.value[index] || '' }
+    ></TextInput>)
+  }
+
+  renderNumbering(index, numbered) {
+    let styles = this.styles();
+    if (numbered) {
+      return (<Text style={[styles.description]}>{'' + (index + 1) + '.'}</Text>)
+    }
+  }
+
+  renderAnswerLine(index, numbered) {
     let styles = this.styles();
     return (<View>
-      <Text style={styles.headline}>{this.props.title}</Text>
       <View style={[styles.input, styles.container]}>
-        <Text style={[styles.description]}>1.</Text>
-        <TextInput
-          style={[styles.text, styles.input]}
-          onChangeText={(aString) => {
-            that.onChangeText(0, aString)
-          }}
-          value = { this.props.value[0] || '' }
-        ></TextInput>
-      </View>
-      <View style={[styles.input, styles.container]}>
-        <Text style={[styles.description]}>2.</Text>
-        <TextInput
-          style={[styles.text, styles.input]}
-          onChangeText={(aString) => {
-            that.onChangeText(1, aString)
-          }}
-          value = { this.props.value[1] || '' }
-        ></TextInput>
-      </View>
-      <View style={[styles.input, styles.container]}>
-        <Text style={[styles.description]}>3.</Text>
-        <TextInput
-          style={[styles.text, styles.input]}
-          onChangeText={(aString) => {
-            that.onChangeText(2, aString)
-          }}
-          value = { this.props.value[2] || '' }
-        ></TextInput>
+        {this.renderNumbering(index, numbered)}
+        {this.renderInputLine(index)}
       </View>
     </View>)
   }
 
-  renderSingleInput() {
-    let that = this;
+  renderTitle() {
     let styles = this.styles();
+    return (<Text style={styles.headline}>{this.props.title}</Text>);
+  }
+
+  renderTripleInput() {
     return (<View>
-      <Text style={styles.headline}>{this.props.title}</Text>
-      <View style={[styles.input, styles.container]}>
-        <TextInput
-          value={this.props.value.length > 0 ? this.props.value[0] : ''}
-          style={[styles.text, styles.input]}
-          onChangeText = {(aString) => {
-            that.onChangeText(0, aString)}
-          }
-        ></TextInput>
-      </View>
+      {this.renderTitle()}
+      {this.renderAnswerLine(0, true)}
+      {this.renderAnswerLine(1, true)}
+      {this.renderAnswerLine(2, true)}
+    </View>)
+  }
+
+  renderSingleInput() {
+    return (<View>
+      {this.renderTitle()}
+      {this.renderAnswerLine(0, false)}
     </View>)
   }
 
