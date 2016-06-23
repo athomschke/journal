@@ -15,9 +15,10 @@ export default class JournalEntry extends Component {
     value: {}
   }
 
-  renderAnswerBlock(textColor, title, isList, name) {
+  renderAnswerBlock(textColor, title, isList, name, i) {
     let value = this.props.value[name];
     return (<AnswerBlock {...this.props}
+      key={i}
       textColor={textColor}
       title={title}
       isList={isList}
@@ -28,37 +29,34 @@ export default class JournalEntry extends Component {
     ></AnswerBlock>)
   }
 
+  renderSections(routine) {
+    return routine.sections.map((section, i) => {
+        return this.renderAnswerBlock(routine.colorScheme.text, section.title, section.isList, section.name, i)
+    })
+  }
+
+  renderRoutines(routines) {
+    return routines.map((routine, i) => {
+      return (<View style={[styles.container, {
+        backgroundColor: routine.colorScheme.background
+      }]}
+        key={i}>
+        <Text style={[styles.headline, {
+          color: routine.colorScheme.text
+        }]}>
+          {routine.title}
+        </Text>
+        <View>
+          {this.renderSections(routine)}
+        </View>
+      </View>)
+    })
+  }
+
   render() {
-    let renderedRoutines = [];
     return (
       <ScrollView style={styles.scrollView}>
-        <View style={[styles.container, {
-          backgroundColor: config.routines[0].colorScheme.background
-        }]}>
-          <Text style={[styles.headline, {
-            color: config.routines[0].colorScheme.text
-          }]}>
-            {config.routines[1].title}
-          </Text>
-          <View>
-            {this.renderAnswerBlock(config.routines[0].colorScheme.text, config.routines[0].sections[0].title, config.routines[0].sections[0].isList, config.routines[0].sections[0].name)}
-            {this.renderAnswerBlock(config.routines[0].colorScheme.text, config.routines[0].sections[1].title, config.routines[0].sections[1].isList, config.routines[0].sections[1].name)}
-            {this.renderAnswerBlock(config.routines[0].colorScheme.text, config.routines[0].sections[2].title, config.routines[0].sections[2].isList, config.routines[0].sections[2].name)}
-          </View>
-        </View>
-        <View style={[styles.container, {
-            backgroundColor: config.routines[1].colorScheme.background
-        }]}>
-          <Text style={[styles.headline, {
-            color: config.routines[1].colorScheme.text
-          }]}>
-            {config.routines[1].title}
-          </Text>
-          <View>
-            {this.renderAnswerBlock(config.routines[1].colorScheme.text, config.routines[1].sections[0].title, config.routines[1].sections[0].isList, config.routines[1].sections[0].name)}
-            {this.renderAnswerBlock(config.routines[1].colorScheme.text, config.routines[1].sections[1].title, config.routines[1].sections[1].isList, config.routines[1].sections[1].name)}
-          </View>
-        </View>
+        {this.renderRoutines(config.routines)}
       </ScrollView>
     )
   }
