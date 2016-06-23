@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
-import {affirmation} from '../constants/titles';
 import {contentFontSize, margin, dayDark} from '../constants/style';
 import { cloneDeep } from 'lodash';
 
