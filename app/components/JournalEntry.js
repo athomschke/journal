@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native';
 import AnswerBlock from './AnswerBlock';
-import { morning, night, affirmation, amazingThings, grateful, improve, makesGreat } from '../constants/titles';
+import { morningTitle, nightTitle, affirmationTitle, amazingThingsTitle, gratefulTitle, improveTitle, makesGreatTitle } from '../constants/titles';
+import { affirmation, amazingThings, grateful, improve, makesGreat } from '../constants/names';
 import {contentFontSize, margin, nightLight, dayLight, dayDark, nightDark, headlineFontSize} from '../constants/style';
 
 export default class JournalEntry extends Component {
@@ -15,39 +16,37 @@ export default class JournalEntry extends Component {
     value: {}
   }
 
-  renderAnswerBlock(textColor, title, isList, value, onChangeText) {
+  renderAnswerBlock(textColor, title, isList, name) {
+    let value = this.props.value[name];
     return (<AnswerBlock {...this.props}
       textColor={textColor}
       title={title}
       isList={isList}
       value={value}
-      onChangeText={onChangeText}>
+      onChangeText={(anArray) => {
+        this.props.onChangeRoutineSection(anArray, name);
+      }}>
     ></AnswerBlock>)
   }
 
   renderGrateful() {
-    return this.renderAnswerBlock(dayDark,grateful, true,
-      this.props.value.grateful, this.props.onChangeGrateful)
+    return this.renderAnswerBlock(dayDark, gratefulTitle, true, grateful);
   }
 
   renderMakesGreat() {
-    return this.renderAnswerBlock(dayDark,makesGreat, false,
-      this.props.value.makesGreat, this.props.onChangeMakesGreat)
+    return this.renderAnswerBlock(dayDark, makesGreatTitle, false, makesGreat);
   }
 
   renderAffirmation() {
-    return this.renderAnswerBlock(dayDark,affirmation, false,
-      this.props.value.affirmation, this.props.onChangeAffirmation)
+    return this.renderAnswerBlock(dayDark, affirmationTitle, false, affirmation);
   }
 
   renderAmazingThings() {
-    return this.renderAnswerBlock(nightLight,amazingThings, true,
-      this.props.value.amazingThings, this.props.onChangeAmazingThings)
+    return this.renderAnswerBlock(nightLight, amazingThingsTitle, true, amazingThings);
   }
 
   renderImprove() {
-    return this.renderAnswerBlock(nightLight,improve, false,
-      this.props.value.improve, this.props.onChangeImprove)
+    return this.renderAnswerBlock(nightLight, improveTitle, false, improve);
   }
 
   render() {
@@ -56,7 +55,7 @@ export default class JournalEntry extends Component {
       <ScrollView style={styles.scrollView}>
         <View style={[styles.container, styles.containerDay]}>
           <Text style={[styles.headline, styles.headlineDay]}>
-            {morning}
+            {morningTitle}
           </Text>
           <View>
             {this.renderGrateful()}
@@ -66,7 +65,7 @@ export default class JournalEntry extends Component {
         </View>
         <View style={[styles.container, styles.containerNight]}>
           <Text style={[styles.headline, styles.headlineNight]}>
-            {night}
+            {nightTitle}
           </Text>
           <View>
             {this.renderAmazingThings()}

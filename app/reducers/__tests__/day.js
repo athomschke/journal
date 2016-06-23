@@ -4,13 +4,11 @@ import React from 'react';
 import day from '../day';
 
 let action = (routineName, value) => {
-  let typeSuffix =  routineName === 'makesGreat' ? 'MAKES_GREAT' :
-                    routineName === 'amazingThings' ? 'AMAZING_THINGS' :
-                    routineName.toUpperCase();
   return {
-    type: 'CHANGE_' + typeSuffix,
+    type: 'CHANGE_ROUTINE_SECTION',
     index: 0,
-    anArray: value
+    anArray: value,
+    sectionName: routineName
   };
 }
 

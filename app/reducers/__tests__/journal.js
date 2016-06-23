@@ -19,9 +19,10 @@ describe('Reducing a whole journal', () => {
       improve: 'eat less junkfood'
     }, {}];
     let action = {
-      type: 'CHANGE_AFFIRMATION',
+      type: 'CHANGE_ROUTINE_SECTION',
       anArray: value,
-      index: 0
+      index: 0,
+      sectionName: 'affirmation'
     }
     let newState = journal(state, action);
     expect(newState).toEqual([{
@@ -38,9 +39,10 @@ describe('Reducing a whole journal', () => {
       improve: ['eat less junkfood']
     }, {}];
     let action = {
-      type: 'CHANGE_IMPROVE',
+      type: 'CHANGE_ROUTINE_SECTION',
       anArray: value,
-      index: 1
+      index: 1,
+      sectionName: 'improve'
     }
     let newState = journal(state, action);
     expect(newState).toEqual([{

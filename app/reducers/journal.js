@@ -12,11 +12,7 @@ let isEntryEmpty = (entry) => {
 
 const journal = (state = [{}], action) => {
   switch (action.type) {
-    case 'CHANGE_AFFIRMATION':
-    case 'CHANGE_AMAZING_THINGS':
-    case 'CHANGE_GRATEFUL':
-    case 'CHANGE_IMPROVE':
-    case 'CHANGE_MAKES_GREAT':
+    case 'CHANGE_ROUTINE_SECTION':
       state = day(state, action);
       if(action.index === state.length - 1 && !isEntryEmpty(last(state))) {
         state.push({});

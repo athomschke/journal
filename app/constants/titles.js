@@ -1,7 +1,7 @@
-export const affirmation = 'Daily affirmation ...';
-export const amazingThings = 'Three amazing things that happened today:';
-export const grateful = 'I am grateful for…';
-export const makesGreat = 'What would make today great?';
-export const improve = 'How could I have made today better?';
-export const morning = 'Morning Routine';
-export const night = 'Night Routine';
+export const affirmationTitle = 'Daily affirmation ...';
+export const amazingThingsTitle = 'Three amazing things that happened today:';
+export const gratefulTitle = 'I am grateful for…';
+export const makesGreatTitle = 'What would make today great?';
+export const improveTitle = 'How could I have made today better?';
+export const morningTitle = 'Morning Routine';
+export const nightTitle = 'Night Routine';

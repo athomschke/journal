@@ -1,6 +1,7 @@
 import { slice, concat } from 'lodash';
 
-let newState = (state, routineName, action) => {
+let newState = (state, action) => {
+  let routineName = action.sectionName;
   let previous = slice(state, 0, action.index) || [];
   let current = state[action.index] || {};
   let newValue = {};
@@ -11,16 +12,8 @@ let newState = (state, routineName, action) => {
 
 const day = (state = [], action) => {
   switch (action.type) {
-    case 'CHANGE_AFFIRMATION':
-      return newState(state, 'affirmation', action);
-    case 'CHANGE_AMAZING_THINGS':
-      return newState(state, 'amazingThings', action);
-    case 'CHANGE_GRATEFUL':
-      return newState(state, 'grateful', action);
-    case 'CHANGE_IMPROVE':
-      return newState(state, 'improve', action);
-    case 'CHANGE_MAKES_GREAT':
-      return newState(state, 'makesGreat', action);
+    case 'CHANGE_ROUTINE_SECTION':
+      return newState(state, action);
     default:
       return state
   }

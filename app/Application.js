@@ -1,3 +1,5 @@
+// ./node_modules/react-native/packager/packager.sh start --resetCache
+
 import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
