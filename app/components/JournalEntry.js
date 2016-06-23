@@ -29,26 +29,6 @@ export default class JournalEntry extends Component {
     ></AnswerBlock>)
   }
 
-  renderGrateful() {
-    return this.renderAnswerBlock(dayDark, gratefulTitle, true, grateful);
-  }
-
-  renderMakesGreat() {
-    return this.renderAnswerBlock(dayDark, makesGreatTitle, false, makesGreat);
-  }
-
-  renderAffirmation() {
-    return this.renderAnswerBlock(dayDark, affirmationTitle, false, affirmation);
-  }
-
-  renderAmazingThings() {
-    return this.renderAnswerBlock(nightLight, amazingThingsTitle, true, amazingThings);
-  }
-
-  renderImprove() {
-    return this.renderAnswerBlock(nightLight, improveTitle, false, improve);
-  }
-
   render() {
     let renderedRoutines = [];
     return (
@@ -58,9 +38,9 @@ export default class JournalEntry extends Component {
             {morningTitle}
           </Text>
           <View>
-            {this.renderGrateful()}
-            {this.renderMakesGreat()}
-            {this.renderAffirmation()}
+            {this.renderAnswerBlock(dayDark, gratefulTitle, true, grateful)}
+            {this.renderAnswerBlock(dayDark, makesGreatTitle, false, makesGreat)}
+            {this.renderAnswerBlock(dayDark, affirmationTitle, false, affirmation)}
           </View>
         </View>
         <View style={[styles.container, styles.containerNight]}>
@@ -68,8 +48,8 @@ export default class JournalEntry extends Component {
             {nightTitle}
           </Text>
           <View>
-            {this.renderAmazingThings()}
-            {this.renderImprove()}
+            {this.renderAnswerBlock(nightLight, amazingThingsTitle, true, amazingThings)}
+            {this.renderAnswerBlock(nightLight, improveTitle, false, improve)}
           </View>
         </View>
       </ScrollView>
