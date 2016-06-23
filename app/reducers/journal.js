@@ -1,13 +1,20 @@
 import day from './day';
-import { last, isEmpty } from 'lodash';
+import { config } from '../constants/journalConfiguration';
+import { last, isEmpty, flatten } from 'lodash';
 import { AsyncStorage } from 'react-native';
 
+let getSectionNames = () => {
+  return flatten(config.routines.map((routine) => {
+    return routine.sections.map((section) => {
+      return section.name
+    })
+  }))
+}
+
 let isEntryEmpty = (entry) => {
-  return isEmpty(entry.affirmation) &&
-    isEmpty(entry.improve) &&
-    isEmpty(entry.makesGreat) &&
-    isEmpty(entry.grateful) &&
-    isEmpty(entry.amazingThings)
+  return !getSectionNames().find((name) => {
+    return !isEmpty(entry[name]);
+  })
 }
 
 const journal = (state = [{}], action) => {

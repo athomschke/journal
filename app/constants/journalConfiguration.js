@@ -20,6 +20,10 @@ export const config = {
       name: 'affirmation',
       title: 'Daily affirmation …',
       isList: false
+    }, {
+      name: 'different',
+      title: 'This is what I\'ll do differently today:',
+      isList: false
     }]
   }, {
     name: 'night',
