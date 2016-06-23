@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
 import {contentFontSize, margin, dayDark} from '../constants/style';
 import { cloneDeep } from 'lodash';
+import AutogrowInput from 'react-native-autogrow-input';
 
 export default class AnswerBlock extends Component {
 
@@ -27,13 +28,12 @@ export default class AnswerBlock extends Component {
     return StyleSheet.create({
       description: {
         width: 15,
+        marginTop: 15,
         marginRight: margin,
         color: this.props.textColor
       },
       container: {
-        flexDirection: 'row',
-        marginTop: 20,
-        marginBottom: 20
+        flexDirection: 'row'
       },
       headline: {
         fontSize: contentFontSize,
@@ -45,10 +45,7 @@ export default class AnswerBlock extends Component {
         color: this.props.textColor
       },
       input: {
-        height: 20,
-        flex: 1,
-        borderBottomWidth: 1,
-        borderBottomColor: this.props.textColor
+        flex: 1
       }
     });
   }
@@ -56,13 +53,16 @@ export default class AnswerBlock extends Component {
   renderInputLine(index) {
     let styles = this.styles();
     let that = this;
-    return (<TextInput
+    return (<AutogrowInput
       style={[styles.text, styles.input]}
       onChangeText={(aString) => {
         that.onChangeText(index, aString)
       }}
+      underlineColorAndroid={this.props.textColor}
+      multiline={true}
+      defaultHeight={40}
       value = { this.props.value[index] || '' }
-    ></TextInput>)
+    ></AutogrowInput>)
   }
 
   renderNumbering(index, numbered) {
