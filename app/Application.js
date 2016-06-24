@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import configureStore from './configureStore';
 import { Provider } from 'react-redux';
 import { AsyncStorage } from 'react-native';
-import { setInitialState } from './actions/initial';
 import Journal from './containers/Journal';
+import loadData from './loadData';
 
 export default class Application extends Component {
 
@@ -13,9 +13,7 @@ export default class Application extends Component {
 
     let store = configureStore();
 
-    // AsyncStorage.getItem('Journal', (state) => {
-    //   store.dispatch(setInitialState(state || []));
-    // });
+    loadData(store);
 
     return (
       <Provider store={store}>
