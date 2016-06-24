@@ -48,8 +48,6 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height
   },
   container: {
-    flex: 1,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height
+    flex: 1
   }
 });

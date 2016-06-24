@@ -38,7 +38,8 @@ export default class JournalEntry extends Component {
   renderRoutines(routines) {
     return routines.map((routine, i) => {
       return (<View style={[styles.container, {
-        backgroundColor: routine.colorScheme.background
+        backgroundColor: routine.colorScheme.background,
+        paddingBottom: 20
       }]}
         key={i}>
         <Text style={[styles.headline, {
@@ -55,7 +56,10 @@ export default class JournalEntry extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollView}
+        pagingEnabled={true}
+        horizontal={false}
+      >
         {this.renderRoutines(config.routines)}
       </ScrollView>
     )
@@ -73,6 +77,9 @@ const styles = StyleSheet.create({
     fontSize: headlineFontSize
   },
   container: {
-    padding: margin
+    padding: margin,
+    flex: 1,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height
   }
 });
