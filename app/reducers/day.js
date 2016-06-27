@@ -6,7 +6,7 @@ let newState = (state, action) => {
   let current = state[action.index] || {};
   let newValue = {};
   newValue[routineName] = action.anArray;
-  newValue['timestamp'] = Date.now();
+  newValue['timestamp'] = newValue['timestamp'] || Date.now();
   let after = slice(state, action.index+1, state.length) || [];
   return concat(previous, [{ ...current, ...newValue }], after);
 }
