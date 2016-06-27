@@ -4,6 +4,16 @@ import AnswerBlock from './AnswerBlock';
 import { config } from '../constants/journalConfiguration';
 import {contentFontSize, margin, nightLight, dayLight, dayDark, nightDark, headlineFontSize} from '../constants/style';
 
+let wasYesterday = (aDate) => {
+  let today = new Date();
+  let yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  return yesterday.getDate() === aDate.getDate() &&
+    yesterday.getMonth() === aDate.getMonth() &&
+    yesterday.getFullYear() === aDate.getFullYear();
+}
+
 export default class JournalEntry extends Component {
 
   static propTypes = {
@@ -60,7 +70,10 @@ export default class JournalEntry extends Component {
   }
 
   formatDate(timestamp) {
-    return timestamp ? new Date(timestamp).toISOString().slice(0, 10) : ' ';
+    let aDate = new Date(timestamp);
+    return timestamp ?
+      ( wasYesterday(aDate) ? 'yesterday' : aDate.toISOString().slice(0, 10) ) :
+      ' ';
   }
 
   render() {
