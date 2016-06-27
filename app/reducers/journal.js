@@ -1,29 +1,18 @@
 import day from './day';
-import { config } from '../constants/journalConfiguration';
 import saveData from '../saveData';
-import { last, isEmpty, flatten } from 'lodash';
-import { AsyncStorage } from 'react-native';
-
-let getSectionNames = () => {
-  return flatten(config.routines.map((routine) => {
-    return routine.sections.map((section) => {
-      return section.name
-    })
-  }))
-}
-
-let isEntryEmpty = (entry) => {
-  return !getSectionNames().find((name) => {
-    return !isEmpty(entry[name]);
-  })
-}
+import { last } from 'lodash';
+import { isEntryEmpty } from './helpers.js';
 
 const journal = (state = [{}], action) => {
   switch (action.type) {
     case 'CHANGE_ROUTINE_SECTION': {
       state = day(state, action);
+
       if(action.index === state.length - 1 && !isEntryEmpty(last(state))) {
         state.push({});
+      }
+      while (state.length > 1 && isEntryEmpty(state[state.length - 1]) && isEntryEmpty(state[state.length - 2])) {
+        state.splice(-1);
       }
       saveData(state);
       break;

@@ -1,4 +1,5 @@
 import { slice, concat } from 'lodash';
+import { isEntryEmpty } from './helpers.js';
 
 let newState = (state, action) => {
   let routineName = action.sectionName;
@@ -6,7 +7,11 @@ let newState = (state, action) => {
   let current = state[action.index] || {};
   let newValue = {};
   newValue[routineName] = action.anArray;
-  newValue['timestamp'] = newValue['timestamp'] || Date.now();
+  if (isEntryEmpty(newValue)) {
+    newValue['timestamp'] = null;
+  } else {
+    newValue['timestamp'] = newValue['timestamp'] || Date.now();
+  }
   let after = slice(state, action.index+1, state.length) || [];
   return concat(previous, [{ ...current, ...newValue }], after);
 }
