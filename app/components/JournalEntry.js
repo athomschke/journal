@@ -47,11 +47,20 @@ export default class JournalEntry extends Component {
         }]}>
           {routine.title}
         </Text>
+        <Text style={[styles.date, {
+          color: routine.colorScheme.text
+        }]}>
+          {this.formatDate(this.props.value.timestamp)}
+        </Text>
         <View>
           {this.renderSections(routine)}
         </View>
       </View>)
     })
+  }
+
+  formatDate(timestamp) {
+    return timestamp ? new Date(timestamp).toISOString().slice(0, 10) : ' ';
   }
 
   render() {
@@ -81,5 +90,9 @@ const styles = StyleSheet.create({
     flex: 1,
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
+  },
+  date: {
+    textAlign: 'center',
+    padding: margin
   }
 });
