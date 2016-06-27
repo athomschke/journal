@@ -1,4 +1,9 @@
+// Start packager from commandline
 // ./node_modules/react-native/packager/packager.sh start --resetCache
+
+// Install release - uninstall dev version first
+// adb uninstall "com.journal"
+// cd android && ./gradlew installRelease
 
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
